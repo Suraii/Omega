@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#-----OMEGA
+
+#-VISUAL
+normal="\e[0m"
+bold="\e[1m"
+italic="\e[3m"
+pale="\e[38;5;223m"
+orange="\e[38;5;214m"
+chip=$bold$orange[$paleω$orange]$normal
+
+#-SPEACH FUNCTIONS
+
+parse_colours() {
+    echo "$@" | sed \
+        -e s/§n/"\\$normal"/g \
+        -e s/§p/"\\$pale"/g \
+        -e s/§o/"\\$orange"/g \
+        -e s/§b/"\\$bold"/g \
+        -e s/§i/"\\$italic"/g;
+}
+
+omega_speach() { text=$(parse_colours "$@") && echo -e $chip $bold$text$normal; }
+omega_log() { text=$(parse_colours "$@") && echo -ne $orange"> "$text; }
+omega_raw() { text=$(parse_colours "$@") && echo -ne $orange$text; }
+omega_endlog() { echo -ne $normal; }
+
+
+
+#-USERDATA
+# INSERT YOUR REPOSITORY OPTIONS HERE
+
+# Repository host
+user_login="alexis.crozet@epitech.eu"
+
+# Will have rights on your repository if you need
+correcter_login="ramassage-tek"
+correcter_rights=$read_only
+
+# Function called on repository creation '$1' will be the repo's name
+create_repo() { mkdir "$1"; } #command blih -u $user_login repository create "$1"; }
+
+# Function called on repository's rights editing '$1' will be the repo's name,
+# '$2' will be the edited user's login, '$3' will be the rights expression (editable below)
+edit_access() { echo "$2 $3" >> "$1"/accesses; } #command blih -u $user_login repository setacl "$1" "$2" "$3"; }
+
+# Right Expressions, will be called in the above function
+no_rights=""
+read_only="r"
+read_and_write="rw"
+admin="rwa"
