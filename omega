@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source ".omega"
+
+case "$1" in
+    "new") ./new.sh ;;
+    "") omega_speach "Heya §pcomrade§b§b !" \
+              && omega_speach "Feel free to type §phelp§n§b or §p?§n§b if you're lost";;
+    "help" | "?") omega_speach "I can't help you for now, hehe";;
+    *) omega_speach "What the hell does §p$1§n§b mean ? I don't know about that "$pale"mate"
+esac
