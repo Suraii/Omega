@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ".omega"
+source ".omega-cfg"
 source "error_handling.sh"
 source "toolbox.sh"
 

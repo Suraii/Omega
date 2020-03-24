@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ".omega"
+source ".omega-cfg"
 
 case "$1" in
     "new") ./new.sh ;;
