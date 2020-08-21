@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source ".omega-cfg"
-source "error_handling.sh"
-source "toolbox.sh"
+source "$OMEGA_ROOT"/.omega-cfg
+source "$OMEGA_ROOT"/error_handling.sh
+source "$OMEGA_ROOT"/toolbox.sh
 
 omega_speach "Hi back §pbud'§n§b !, let me build that repo !"
 
@@ -24,5 +24,12 @@ case "$access" in
 esac
 
 ask_for_accesses
+
+omega_speach "Should I use a §ppreset§n to build the repository ? [y/N]"
+read -rs -n 1 access
+case "$access" in
+    "y") ask_for_preset ;;
+    *) ;;
+esac
 
 omega_endlog

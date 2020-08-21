@@ -1,4 +1,4 @@
-source ".omega-cfg"
+source "$OMEGA_ROOT"/.omega-cfg
 
 error_exit() {
     omega_speach "Sorry, seems like something went §pwrong§n§b, better luck next time !";

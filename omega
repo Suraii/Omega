@@ -1,11 +1,12 @@
 #!/bin/bash
 
-source ".omega-cfg"
+source "$OMEGA_ROOT"/.omega-cfg
+source "$OMEGA_ROOT"/toolbox.sh
 
 case "$1" in
-    "new") ./new.sh ;;
+    "new") "$OMEGA_ROOT"/new.sh;;
     "") omega_speach "Heya §pcomrade§b§b !" \
               && omega_speach "Feel free to type §phelp§n§b or §p?§n§b if you're lost";;
-    "help" | "?") omega_speach "I can't help you for now, hehe";;
+    "help" | "?") "$OMEGA_ROOT"/help.sh ;;
     *) omega_speach "What the hell does §p$1§n§b mean ? I don't know about that "$pale"mate"
 esac

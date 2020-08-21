@@ -1,0 +1,5 @@
+#!/bin/bash
+
+touch sheet
+mkdir box
+touch box/rare_item

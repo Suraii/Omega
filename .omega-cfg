@@ -10,24 +10,6 @@ pale="\e[38;5;223m"
 orange="\e[38;5;214m"
 chip=$bold$orange[$paleω$orange]$normal
 
-#-SPEACH FUNCTIONS
-
-parse_colours() {
-    echo "$@" | sed \
-        -e s/§n/"\\$normal"/g \
-        -e s/§p/"\\$pale"/g \
-        -e s/§o/"\\$orange"/g \
-        -e s/§b/"\\$bold"/g \
-        -e s/§i/"\\$italic"/g;
-}
-
-omega_speach() { text=$(parse_colours "$@") && echo -e $chip $bold$text$normal; }
-omega_log() { text=$(parse_colours "$@") && echo -ne $orange"> "$text; }
-omega_raw() { text=$(parse_colours "$@") && echo -ne $orange$text; }
-omega_endlog() { echo -ne $normal; }
-
-
-
 #-USERDATA
 # INSERT YOUR REPOSITORY OPTIONS HERE
 
