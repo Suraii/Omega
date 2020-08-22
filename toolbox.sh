@@ -3,6 +3,15 @@
 source "$OMEGA_ROOT"/.omega-cfg
 source "$OMEGA_ROOT"/error_handling.sh
 
+
+ask_for_name() {
+    omega_log "Repository's name: §p"
+    read -r name
+    find_repository $name \
+        && omega_speach "Sorry buddy but you already have a repo named '§p$name§n§b' :/" && ask_for_name \
+        || omega_speach "§p$name§n§b ? That sounds good"
+}
+
 ask_for_accesses() {
     omega_speach "Is there §panyone else §n§bI should give §prights§n§b to ? [y/N]"
     read -rs -n 1 access
@@ -57,5 +66,5 @@ parse_colours() {
 
 omega_speach() { text=$(parse_colours "$@") && echo -e $chip $bold$text$normal; }
 omega_log() { text=$(parse_colours "$@") && echo -ne $orange"> "$text; }
-omega_raw() { text=$(parse_colours "$@") && echo -ne $orange$text; }
+omega_raw() { text="$(parse_colours "$@")" && echo -ne $orange"$text"; }
 omega_endlog() { echo -ne $normal; }

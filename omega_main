@@ -5,6 +5,7 @@ source "$OMEGA_ROOT"/toolbox.sh
 
 case "$1" in
     "new") "$OMEGA_ROOT"/new.sh;;
+    "list") "$OMEGA_ROOT"/list.sh;;
     "") omega_speach "Heya §pcomrade§b§b !" \
               && omega_speach "Feel free to type §phelp§n§b or §p?§n§b if you're lost";;
     "help" | "?") "$OMEGA_ROOT"/help.sh ;;
